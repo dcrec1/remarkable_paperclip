@@ -3,9 +3,6 @@ require 'active_record'
 require 'paperclip'
 require 'lib/remarkable_paperclip'
 
-require 'ruby2ruby'
-
-
 class Person < ActiveRecord::Base
   has_attached_file :avatar
 end
