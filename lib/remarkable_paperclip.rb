@@ -1,0 +1,2 @@
+module RemarkablePaperclip
+end
