@@ -18,5 +18,7 @@ require 'remarkable_activerecord'
 
 dir = File.dirname(__FILE__)
 require File.join(dir, "..", "lib", "remarkable_paperclip")
+require File.join(dir, "model_builder")
+include ModelBuilder
 
 Remarkable.include_matchers!(Remarkable::Paperclip, Spec::Example::ExampleGroup)

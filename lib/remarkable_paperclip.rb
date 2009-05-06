@@ -7,7 +7,7 @@ module Remarkable
         assertion :has_attached_file?
         
         def has_attached_file?
-          @subject.respond_to? "before_#{@attribute}_post_process_callback_chain"
+          @subject.class.respond_to? "before_#{@attribute}_post_process_callback_chain"
         end
       end
 
