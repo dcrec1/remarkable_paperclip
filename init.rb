@@ -1,6 +1,12 @@
-require 'remarkable_activerecord'
+if RAILS_ENV == "test"
 
-require File.join(File.dirname(__FILE__), "lib", "remarkable_paperclip")
+  require 'remarkable_activerecord'
 
-Remarkable.include_matchers!(Remarkable::Paperclip, Spec::Rails::Example::ModelExampleGroup)
+  require File.join(File.dirname(__FILE__), "lib", "remarkable_paperclip")
 
+  require 'spec'
+  require 'spec/rails'
+
+  Remarkable.include_matchers!(Remarkable::Paperclip, Spec::Rails::Example::ModelExampleGroup)
+
+end
