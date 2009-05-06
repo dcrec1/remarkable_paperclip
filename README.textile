@@ -1,4 +1,4 @@
-h2. INSTALLATION
+h2. INSTALLATION:
 
 <pre>
   <code>
