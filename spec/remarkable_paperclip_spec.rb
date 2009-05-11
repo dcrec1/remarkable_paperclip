@@ -30,5 +30,11 @@ describe Remarkable::Paperclip do
     it "should validate an attached file doesn't has styles" do
       have_attached_file(:logo, :styles => { :medium => "400x400", :thumb => "90x90" }).matches?(@model).should be_false
     end
+    
+    it "should handle validation of styles on created models" do
+      definitions = {:logo=>{:styles=>{:medium=>{:whiny=>nil, :format=>nil, :processors=>[:thumbnail], :convert_options=>"", :geometry=>"300x300"}, :thumb=>{:whiny=>nil, :format=>nil, :processors=>[:thumbnail], :convert_options=>"", :geometry=>"80x80"}}, :validations=>{}}}
+      Person.stub!(:attachment_definitions).and_return(definitions)
+      have_attached_file(:logo, :styles => { :medium => "300x300", :thumb => "80x80" }).matches?(@model).should be_true
+    end
   end
 end
