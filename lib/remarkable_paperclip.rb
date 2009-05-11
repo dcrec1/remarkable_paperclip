@@ -12,7 +12,9 @@ module Remarkable
           model_class = @subject.class
           styles = @options[:styles]
           styles.each do |key, value|
-            style = model_class.attachment_definitions[@attribute][:styles][key]
+            instance_styles = model_class.attachment_definitions[@attribute][:styles]
+            return false if instance_styles.nil?
+            style = instance_styles[key]
             return false unless (style.instance_of?(Hash) ? style[:geometry] : style).eql? value
           end unless styles.nil?
           model_class.respond_to? "before_#{@attribute}_post_process_callback_chain"

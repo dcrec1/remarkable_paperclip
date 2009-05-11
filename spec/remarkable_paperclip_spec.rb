@@ -36,5 +36,9 @@ describe Remarkable::Paperclip do
       Person.stub!(:attachment_definitions).and_return(definitions)
       have_attached_file(:logo, :styles => { :medium => "300x300", :thumb => "80x80" }).matches?(@model).should be_true
     end
+    
+     it "should handle validation of styles on attachments without styles" do
+      have_attached_file(:avatar, :styles => { :medium => "300x300", :thumb => "80x80" }).matches?(@model).should be_false
+    end
   end
 end
