@@ -11,7 +11,7 @@ h2. USAGE:
 <pre>
   <code>
     describe Advertise do
-      should_have_attached_file :logo
+      should_have_attached_file(:logo, :styles => { :medium => 400x400, :thumb => 90x90 })
     end
   </code>
 </pre>
@@ -20,7 +20,7 @@ h2. LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIX
+Copyright (c) 2009
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
