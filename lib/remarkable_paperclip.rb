@@ -4,15 +4,22 @@ module Remarkable
       class HaveAttachedFileMatcher < Remarkable::ActiveRecord::Base
         arguments :attribute
         
+        optional :styles
+        
         assertion :has_attached_file?
         
         def has_attached_file?
-          @subject.class.respond_to? "before_#{@attribute}_post_process_callback_chain"
+          model_class = @subject.class
+          styles = @options[:styles]
+          styles.each do |key, value|
+            return false unless model_class.attachment_definitions[@attribute][:styles][key].eql? value
+          end unless styles.nil?
+          model_class.respond_to? "before_#{@attribute}_post_process_callback_chain"
         end
       end
 
-      def have_attached_file(attribute)
-        HaveAttachedFileMatcher.new(attribute).spec(self)
+      def have_attached_file(*args)
+        HaveAttachedFileMatcher.new(*args).spec(self)
       end
 
     end
