@@ -5,7 +5,7 @@ require 'rake/gempackagetask'
 require 'spec/rake/spectask'
  
 GEM = "remarkable_paperclip"
-GEM_VERSION = "0.2.0"
+GEM_VERSION = "0.2.1"
 SUMMARY = "Paperclip Remarkable Matchers"
 AUTHOR = "Diego Carrion"
 EMAIL = "dc.rec1@gmail.com"
