@@ -11,7 +11,7 @@ h2. USAGE:
 <pre>
   <code>
     describe Advertise do
-      should_have_attached_file(:logo, :styles => { :medium => 400x400, :thumb => 90x90 })
+      should_have_attached_file(:logo, :styles => { :medium => '400x400', :thumb => '90x90' })
     end
   </code>
 </pre>
