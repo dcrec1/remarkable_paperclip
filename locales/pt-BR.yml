@@ -2,6 +2,6 @@ pt-BR:
   remarkable:
     paperclip: 
       have_attached_file: 
-        description: "deve ter um arquivo anexado"
+        description: "ter um arquivo anexado"
         expectations: 
           has_attached_file: "{{subject_name}} tivesse um(a) {{attribute}} como anexo"
